@@ -1,4 +1,4 @@
-const axios = require('axios');
+import axios from 'axios';
 var FormData = require('form-data');
 
 var form = document.getElementById("formElem");
