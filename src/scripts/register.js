@@ -1,4 +1,4 @@
-const axios = require('axios');
+import axios from 'axios';
 var FormData = require('form-data');
 
 var form = document.getElementById("regForm");
@@ -14,15 +14,15 @@ form.addEventListener('submit', function(ev) {
   var fpassword2 = oData.get('password2').trim();
   var femail = oData.get('email').trim();
 
-  if (fusername !='' && fusername != undefined ){
-    if (fpassword !='' && fpassword != undefined && fpassword === fpassword2){
+  if (fusername !=='' && fusername !== undefined ){
+    if (fpassword !=='' && fpassword !== undefined && fpassword === fpassword2){
         checkpassword = true;
     }
         else alert('Укажите пароль');
   }
   else alert('Укажите корректный логин');
 
-if (checkpassword != true) return false;
+if (!checkpassword) return false;
 
   oData.set('username', fusername);
   oData.set('password', fpassword);

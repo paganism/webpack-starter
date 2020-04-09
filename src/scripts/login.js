@@ -12,15 +12,15 @@ form.addEventListener('submit', function(ev) {
   var fusername = oData.get('username').trim();
   var fpassword = oData.get('password').trim();
 
-  if (fusername !='' && fusername != undefined ){
-    if (fpassword !='' && fpassword != undefined ){
+  if (fusername !=='' && fusername !== undefined ){
+    if (fpassword !=='' && fpassword !== undefined ){
         checkpassword = true;
     }
         else alert('Укажите пароль');
   }
   else alert('Укажите корректный логин');
 
-if (checkpassword != true) return false;
+if (!checkpassword) return false;
 
   oData.set('username', fusername);
   oData.set('password', fpassword);
