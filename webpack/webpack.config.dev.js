@@ -13,7 +13,7 @@ module.exports = merge(common, {
     inline: true,
     hot: true,
     proxy: [{
-      context: ['/api-oauth/users', '/api-oauth/login', '/api-ouath/register'],
+      context: ['/api-oauth/users', '/api-oauth/courses/', '/api-oauth/login', '/api-ouath/register'],
       target: 'http://localhost:8000',
     }]
   },
