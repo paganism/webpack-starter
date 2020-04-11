@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 function getCourses() {
-    var acsess_token = 'kt8uPyqRzMYBNgidbzLYxW8kwaM8ez';
+    var acsess_token = 'your access token';
     var AuthStr = 'Bearer '.concat(acsess_token); 
 
     axios({
