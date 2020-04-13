@@ -1,9 +1,18 @@
 import axios from 'axios';
 
 
+function getCookie(name) {
+  let value = "; " + document.cookie;
+  let parts = value.split("; " + name + "=");
+  if (parts.length == 2)
+  return parts.pop().split(";").shift();
+}
+
+
 function getCourses() {
-    var acsess_token = 'your access token';
-    var AuthStr = 'Bearer '.concat(acsess_token); 
+    let acsess_token = getCookie('token');
+
+    let AuthStr = 'Bearer '.concat(acsess_token); 
 
     axios({
         method: 'get',
@@ -13,7 +22,7 @@ function getCourses() {
       })
       .then(function (response) {
 
-        var results = response.data.results;
+        let results = response.data.results;
         let parent = document.querySelector('#course-title');
 
         for (let i = 0; i < response.data.results.length; i++) {

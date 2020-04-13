@@ -1,19 +1,20 @@
 import axios from 'axios';
-var FormData = require('form-data');
 
-var form = document.getElementById("formElem");
+let FormData = require('form-data');
 
-form.addEventListener('submit', function(ev) {
+let form = document.getElementById("formElem");
 
-  var checkpassword = false;
+form.addEventListener('submit', function(ev, req) {
 
-  var oData = new FormData(form);
+  let checkpassword = false;
 
-  var fusername = oData.get('username').trim();
-  var fpassword = oData.get('password').trim();
+  let oData = new FormData(form);
 
-  if (fusername !=='' && fusername !== undefined ){
-    if (fpassword !=='' && fpassword !== undefined ){
+  let fusername = oData.get('username').trim();
+  let fpassword = oData.get('password').trim();
+
+  if (!!fusername){
+    if (!!fpassword){
         checkpassword = true;
     }
         else alert('Укажите пароль');
@@ -32,13 +33,14 @@ if (!checkpassword) return false;
         data: oData
       })
       .then(function (response) {
-        console.log(response.status);
+
+        document.cookie = 'token=' + response.data.token;
+
         if (response.status === 200) {
           window.location = '/index';
         };
       })
       .catch(function (error) {
-        console.log(error);
       });
       ;
 
